@@ -2,8 +2,18 @@
 
 //Conexion a la BD
     function conexion(){
-        $pdo = new PDO('mysql:host=localhost;dbname=desarrollo_urbanistico','root','');
-        return $pdo;
+        try {
+			// Crear conexión PDO
+			$pdo = new PDO('mysql:host=localhost;dbname=desarrollo_urbanistico', 'root', '');
+	
+			// Establecer atributos para manejar errores y asegurar UTF-8
+			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$pdo->exec("SET NAMES 'utf8'");
+	
+			return $pdo;
+		} catch (PDOException $e) {
+			die("Error de conexión: " . $e->getMessage());
+		}
     }
 
 // Verificar datos 
@@ -46,7 +56,7 @@
     }
     
 //Funcion renombrar imagenes
-    function renombrar_imagenes($nombre){
+    function renombrar_fotos($nombre){
 	$nombre=str_ireplace(" ", "_", $nombre);
 	$nombre=str_ireplace("/", "_", $nombre);
 	$nombre=str_ireplace("#", "_", $nombre);
