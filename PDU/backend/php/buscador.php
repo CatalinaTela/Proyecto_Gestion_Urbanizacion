@@ -1,7 +1,7 @@
 <?php
 	$modulo_buscador=limpiar_cadena($_POST['modulo_buscador']);
 
-	$modulos=["usuario","operacion","tipo","propiedad"];
+	$modulos=["usuario","operacion","tipo","propiedad","inmobiliaria"];
 
 	if(in_array($modulo_buscador, $modulos)){
 		
@@ -9,7 +9,8 @@
 			"usuario"=>"user_search",
 			"operacion"=>"operation_search",
                         "tipo"=>"type_search",
-			"propiedad"=>"property_search"
+			"propiedad"=>"property_search",
+                        "inmobiliaria"=>"agency_search"
 		];
 
 		$modulos_url=$modulos_url[$modulo_buscador];

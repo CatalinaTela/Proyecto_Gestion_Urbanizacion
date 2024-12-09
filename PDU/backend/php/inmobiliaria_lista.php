@@ -4,15 +4,15 @@
 
 	if(isset($busqueda) && $busqueda!=""){
 
-            $consulta_datos="SELECT * FROM usuarios WHERE (name LIKE '%$busqueda%' OR lastname LIKE '%$busqueda%' OR mail LIKE '%$busqueda%' OR phone LIKE '%$busqueda%' OR role LIKE '%$busqueda%') ORDER BY name ASC LIMIT $inicio,$registros";
+            $consulta_datos="SELECT * FROM inmobiliarias WHERE (name_agency LIKE '%$busqueda%' OR mail_agency LIKE '%$busqueda%' OR phone_agency LIKE '%$busqueda%' OR website LIKE '%$busqueda%') ORDER BY name_agency ASC LIMIT $inicio,$registros";
 
-            $consulta_total="SELECT COUNT(id_user) FROM usuarios WHERE (name LIKE '%$busqueda%' OR lastname LIKE '%$busqueda%' OR mail LIKE '%$busqueda%' OR phone LIKE '%$busqueda%' OR role LIKE '%$busqueda%')";
+            $consulta_total="SELECT COUNT(id_agency) FROM inmobiliarias WHERE (name_agency LIKE '%$busqueda%' OR mail_agency LIKE '%$busqueda%' OR phone_agency LIKE '%$busqueda%' OR website LIKE '%$busqueda%')";
 
         }else{
 
-            $consulta_datos="SELECT * FROM usuarios ORDER BY name ASC LIMIT $inicio,$registros";
+            $consulta_datos="SELECT * FROM inmobiliarias ORDER BY name_agency ASC LIMIT $inicio,$registros";
 
-            $consulta_total="SELECT COUNT(id_user) FROM usuarios";
+            $consulta_total="SELECT COUNT(id_agency) FROM inmobiliarias";
         }
 
 
@@ -33,10 +33,9 @@
                 <tr class="has-text-centered">
                 	<th>#</th>
                     <th>Nombres</th>
-                    <th>Apellidos</th>
                     <th>Email</th>
                     <th>Telefono</th>
-					<th>Rol</th>
+                    <th>Sitio Web</th>
                     <th colspan="2">Opciones</th>
                 </tr>
             </thead>
@@ -50,16 +49,15 @@
 			$tabla.='
 				<tr class="has-text-centered" >
 					<td>'.$contador.'</td>
-                    <td>'.$rows['name'].'</td>
-                    <td>'.$rows['lastname'].'</td>
-                    <td>'.$rows['mail'].'</td>
-                    <td>'.$rows['phone'].'</td>
-					<td>'.$rows['role'].'</td>
+                    <td>'.$rows['name_agency'].'</td>
+                    <td>'.$rows['website'].'</td>
+                    <td>'.$rows['mail_agency'].'</td>
+                    <td>'.$rows['phone_agency'].'</td>
                     <td>
-                        <a href="index.php?vista=user_update&id_user_up='.$rows['id_user'].'" class="button is-success is-rounded is-small">Actualizar</a>
+                        <a href="index.php?vista=agency_update&id_agency_up='.$rows['id_agency'].'" class="button is-success is-rounded is-small">Actualizar</a>
                     </td>
                     <td>
-                        <a href="'.$url.$pagina.'&id_user_del='.$rows['id_user'].'" class="button is-danger is-rounded is-small">Eliminar</a>
+                        <a href="'.$url.$pagina.'&id_agency_del='.$rows['id_agency'].'" class="button is-danger is-rounded is-small">Eliminar</a>
                     </td>
                 </tr>
             ';
@@ -92,7 +90,7 @@
 	$tabla.='</tbody></table></div>';
 
 	if($total>0 && $pagina<=$Npaginas){
-		$tabla.='<p class="has-text-right">Mostrando usuarios <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
+		$tabla.='<p class="has-text-right">Mostrando inmobiliarias <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
 
 	$conexion=null;

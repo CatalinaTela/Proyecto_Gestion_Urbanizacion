@@ -50,11 +50,19 @@
     		$_SESSION['nombre']=$check_user['name'];
     		$_SESSION['apellido']=$check_user['lastname'];
     		$_SESSION['telefono']=$check_user['phone'];
+            $_SESSION['role']=$check_user['role'];
+
+            // Redirigir según el rol
+            if ($check_user['role'] == 'admin') {
+                $redirect_url = "index.php?vista=home"; // Vista inicial para admin
+            } else {
+                $redirect_url = "index.php?vista=home_public"; // Vista inicial para usuarios
+            }
 
     		if(headers_sent()){
-				echo "<script> window.location.href='index.php?vista=home'; </script>";
+				echo "<script> window.location.href=$redirect_url; </script>";
 			}else{
-				header("Location: index.php?vista=home");
+				header("Location: $redirect_url");
 			}
 
     	}else{
