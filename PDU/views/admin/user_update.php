@@ -61,6 +61,27 @@
 				</div>
 		  	</div>
 		</div>
+		<div class="columns">
+			<div class="column">
+                <label>Rol</label><br>
+                <div class="select is-rounded">
+					<select name="usuario_role">
+						<?php
+						// Definir los roles posibles
+						$roles_disponibles = ['user', 'admin'];
+						
+						// Obtener el rol actual del usuario
+						$rol_actual = isset($datos['role']) ? $datos['role'] : 'user'; // Valor predeterminado 'user'
+
+						// Crear opciones del menú desplegable
+						foreach ($roles_disponibles as $rol) {
+							echo '<option value="'.$rol.'" '.($rol_actual == $rol ? 'selected' : '').'>'.$rol.'</option>';
+						}
+						?>
+					</select>
+                </div>
+            </div>
+        </div>
 		<br><br>
 		<p class="has-text-centered">
 			SI desea actualizar la clave de este usuario por favor llene los 2 campos. Si NO desea actualizar la clave deje los campos vacíos.

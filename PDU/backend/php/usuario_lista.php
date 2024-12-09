@@ -4,9 +4,9 @@
 
 	if(isset($busqueda) && $busqueda!=""){
 
-            $consulta_datos="SELECT * FROM usuarios WHERE (name LIKE '%$busqueda%' OR lastname LIKE '%$busqueda%' OR mail LIKE '%$busqueda%' OR phone LIKE '%$busqueda%') ORDER BY name ASC LIMIT $inicio,$registros";
+            $consulta_datos="SELECT * FROM usuarios WHERE (name LIKE '%$busqueda%' OR lastname LIKE '%$busqueda%' OR mail LIKE '%$busqueda%' OR phone LIKE '%$busqueda%' OR role LIKE '%$busqueda%') ORDER BY name ASC LIMIT $inicio,$registros";
 
-            $consulta_total="SELECT COUNT(id_user) FROM usuarios WHERE (name LIKE '%$busqueda%' OR lastname LIKE '%$busqueda%' OR mail LIKE '%$busqueda%' OR phone LIKE '%$busqueda%')";
+            $consulta_total="SELECT COUNT(id_user) FROM usuarios WHERE (name LIKE '%$busqueda%' OR lastname LIKE '%$busqueda%' OR mail LIKE '%$busqueda%' OR phone LIKE '%$busqueda%' OR role LIKE '%$busqueda%')";
 
         }else{
 
@@ -36,6 +36,7 @@
                     <th>Apellidos</th>
                     <th>Email</th>
                     <th>Telefono</th>
+					<th>Rol</th>
                     <th colspan="2">Opciones</th>
                 </tr>
             </thead>
@@ -53,6 +54,7 @@
                     <td>'.$rows['lastname'].'</td>
                     <td>'.$rows['mail'].'</td>
                     <td>'.$rows['phone'].'</td>
+					<td>'.$rows['role'].'</td>
                     <td>
                         <a href="index.php?vista=user_update&id_user_up='.$rows['id_user'].'" class="button is-success is-rounded is-small">Actualizar</a>
                     </td>

@@ -20,7 +20,7 @@
                     <a class="navbar-item" href="index.php?vista=">Casas</a>
                     <a class="navbar-item" href="index.php?vista=">Departamentos</a>
                     <a class="navbar-item" href="index.php?vista=">Duplex</a>
-                    <a class="navbar-item" href="index.php?vista=">Todos</a>
+                    <a class="navbar-item" href="index.php?vista=catalogo">Todos</a>
                 </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -29,7 +29,7 @@
                     <a class="navbar-item" href="index.php?vista=">Casas</a>
                     <a class="navbar-item" href="index.php?vista=">Departamentos</a>
                     <a class="navbar-item" href="index.php?vista=">Duplex</a>
-                    <a class="navbar-item" href="index.php?vista=">Todos</a>
+                    <a class="navbar-item" href="index.php?vista=catalogo">Todos</a>
                 </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -38,15 +38,15 @@
                     <a class="navbar-item" href="index.php?vista=">Casas</a>
                     <a class="navbar-item" href="index.php?vista=">Departamentos</a>
                     <a class="navbar-item" href="index.php?vista=">Cabañas</a>
-                    <a class="navbar-item" href="index.php?vista=">Todos</a>
+                    <a class="navbar-item" href="index.php?vista=catalogo">Todos</a>
                 </div>
             </div>
             <a class="navbar-item" href="index.php?vista=about_us" >Sobre nosotros</a>
             <div class="navbar-item has-dropdown is-hoverable">
                 <a class="navbar-link">Contacto</a>
                 <div class="navbar-dropdown">
-                    <a class="navbar-item" href="index.php?vista=agencies">Inmobiliarias</a>
-                    <a class="navbar-item" href="index.php?vista=contact">Mensaje</a>
+                    <a class="navbar-item" href="index.php?vista=inmobiliarias">Inmobiliarias</a>
+                    <a class="navbar-item" href="index.php?vista=contacto">Mensaje</a>
                     <hr class="navbar-divider">
                 </div>
             </div>
@@ -55,10 +55,7 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary is-rounded">
-                      <strong>Entrar a mi cuenta</strong>
-                    </a>
-                    <a href="index.php?vista=logout" class="button is-light is-rounded">
+                    <a href="index.php?vista=logout" class="button is-danger is-rounded">
                       Salir
                     </a>
                 </div>

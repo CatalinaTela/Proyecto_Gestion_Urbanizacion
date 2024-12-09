@@ -8,6 +8,7 @@
     $telefono = limpiar_cadena($_POST['usuario_telefono']);
     $clave_1 = limpiar_cadena($_POST['usuario_clave_1']);
     $clave_2 = limpiar_cadena($_POST['usuario_clave_2']);
+    $role = limpiar_cadena($_POST['usuario_role']);
     
     //Verificando campos obligatorios
     if($nombre=="" || $apellido=="" || $clave_1=="" || $clave_2==""){
@@ -102,12 +103,22 @@
         $clave=password_hash($clave_1,PASSWORD_BCRYPT,["cost"=>10]);
     }
     
+    //Validar el rol
+    if ($role != "user" && $role != "admin") {
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrió un error inesperado!</strong><br>
+                El rol seleccionado no es válido.
+            </div>
+        ';
+        exit();
+    }
     
   //Guardando datos en BD
     $guardar_usuario=conexion();
     $guardar_usuario=$guardar_usuario->prepare("INSERT INTO "
-            . "usuarios(name,lastname,mail,password,phone) "
-            . "VALUES(:nombre,:apellido,:email,:clave,:telefono)");
+            . "usuarios(name,lastname,mail,password,phone,role) "
+            . "VALUES(:nombre,:apellido,:email,:clave,:telefono,:role)");
     
     $marcadores=[
         ":nombre"=>$nombre,
@@ -115,6 +126,7 @@
         ":email"=>$email,
         ":clave"=>$clave,
         ":telefono"=>$telefono,
+        ":role" => $role,
     ];
     
     $guardar_usuario->execute($marcadores);

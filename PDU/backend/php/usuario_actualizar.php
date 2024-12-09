@@ -100,6 +100,8 @@
 
     $clave_1=limpiar_cadena($_POST['usuario_clave_1']);
     $clave_2=limpiar_cadena($_POST['usuario_clave_2']);
+     
+    $role=limpiar_cadena($_POST['usuario_role']);
 
 
     /*== Verificando campos obligatorios del usuario ==*/
@@ -200,10 +202,21 @@
     	$clave=$datos['password'];
     }
 
+    //Validar el rol
+    if ($role != "user" && $role != "admin") {
+        echo '
+            <div class="notification is-danger is-light">
+                <strong>¡Ocurrió un error inesperado!</strong><br>
+                El rol seleccionado no es válido.
+            </div>
+        ';
+        exit();
+    }
+
 
     /*== Actualizar datos ==*/
     $actualizar_usuario=conexion();
-    $actualizar_usuario=$actualizar_usuario->prepare("UPDATE usuarios SET name=:nombre,lastname=:apellido,phone=:telefono,password=:clave,mail=:email WHERE id_user=:id");
+    $actualizar_usuario=$actualizar_usuario->prepare("UPDATE usuarios SET name=:nombre,lastname=:apellido,phone=:telefono,password=:clave,mail=:email,role=:role WHERE id_user=:id");
 
     $marcadores=[
         ":nombre"=>$nombre,
@@ -211,7 +224,8 @@
         ":telefono"=>$telefono,
         ":clave"=>$clave,
         ":email"=>$email,
-        ":id"=>$id
+        ":id"=>$id,
+        ":role"=>$role
     ];
 
     if($actualizar_usuario->execute($marcadores)){

@@ -5,7 +5,7 @@
 
 <div class="container pb-6 pt-6">  
     <?php
-        require_once "./backend/php/main.php";
+        require_once "././backend/php/main.php";
 
         # Eliminar usuario #
         if(isset($_GET['id_user_del'])){
@@ -27,6 +27,6 @@
         $busqueda="";
 
         # Paginador usuario #
-        require_once "./backend/php/usuario_lista.php";
+        require_once "././backend/php/usuario_lista.php";
     ?>
 </div>

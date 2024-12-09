@@ -68,7 +68,7 @@
 				  	</select>
 				</div>
 		  	</div>
-                        <div class="column">
+            <div class="column">
 				<label>Operación</label><br>
 		    	<div class="select is-rounded">
 				  	<select name="id_operation" >

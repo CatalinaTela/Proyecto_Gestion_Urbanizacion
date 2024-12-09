@@ -106,7 +106,7 @@ if (isset($busqueda) && $busqueda != "") {
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a href="#' . $rows['id_property'] . '" class="card-footer-item">Ver más</a>
+                    <a href="index.php?vista=publicacion&id_property_view=' . $rows['id_property'] . '" class="card-footer-item">Ver más</a>
                     <a href="#' . $rows['id_property'] . '" class="card-footer-item">Guardar</a>
                 </footer>    
             </div>
