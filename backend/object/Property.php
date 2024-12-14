@@ -1,6 +1,6 @@
 <?php  
     $inicio = ($pagina > 0) ? (($pagina * $registros) - $registros) : 0;
-    $cuadricula = ""; // Cambiar la variable $tabla por $cuadricula
+    $cuadricula = ""; 
 
     $campos = "propiedades.id_property, propiedades.title, propiedades.description, propiedades.observations, propiedades.ubication, propiedades.value, propiedades.picture, propiedades.id_operation, propiedades.id_type, operacion_inmobiliaria.id_operation, operacion_inmobiliaria.operation_name, tipo_propiedad.id_type, tipo_propiedad.type_name";
     
@@ -82,16 +82,17 @@ if (isset($busqueda) && $busqueda != "") {
 
     // Recorrido de los datos y generación de celdas para la cuadrícula
     foreach ($datos as $rows) {
-        $fotoPath = is_file("./assets/img/propiedad/" . $rows['picture']) 
-                    ? './assets/img/propiedad/' . $rows['picture'] 
-                    : './assets/img/propiedad.png';
+        $pictures = json_decode($rows['picture'], true);
+        $fotoPath = is_file($pictures[0]) 
+            ? $pictures[0] 
+            : './assets/img/logo.jpg';
     
         $cuadricula .= '
         <div class="column is-12-mobile is-6-tablet is-4-desktop is-3-widescreen"> <!-- Responsividad -->
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src="' . $fotoPath . '" alt="Foto">
+                        <img src="'.$fotoPath.'" alt="Foto" >
                     </figure>
                 </div>
                 <header class="card-header">
