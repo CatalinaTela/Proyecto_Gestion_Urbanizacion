@@ -1,7 +1,7 @@
 admin login
-mail: catatela@gmail.com
+mail: admin@gmail.com
 password: 1234
 
 user login
-mail: tela.cata@gmail.com 
+mail: user@gmail.com 
 password: 1234
