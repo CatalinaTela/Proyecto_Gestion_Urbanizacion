@@ -6,7 +6,7 @@ $id = (isset($_GET['id_property_view'])) ? $_GET['id_property_view'] : 0;
 $id = limpiar_cadena($id);
 ?>
 <div class="container is-fluid mb-6">
-    <h1 class="title">Propiedad</h1>
+    <h1 class="title">Propiedades</h1>
 </div>
 
 <div class="container pb-6 pt-6">
@@ -23,11 +23,23 @@ $id = limpiar_cadena($id);
     <div class="form-rest mb-6 mt-6"></div>
         <div class="columns is-mobile">
             <div class="column">
-                <?php if(is_file("./assets/img/propiedad/".$datos['picture'])){ ?>
-                        <figure class="image mb-6">
-                            <img src="./assets/img/propiedad/<?php echo $datos['picture']; ?>">
+            <h4 class="title is-4 mb-6">Imágenes actuales</h4>
+        <form action="./backend/php/propiedad_img_eliminar.php" method="POST">
+            <input type="hidden" name="img_del_id" value="<?php echo $datos['id_property']; ?>">
+            <div class="columns is-multiline">
+                <?php foreach ($images as $index => $img) { ?>
+                    <div class="column is-one-quarter">
+                        <figure class="image is-4by3">
+                            <img src="<?php echo $img; ?>" alt="Imagen propiedad">
                         </figure>
+                        <input type="checkbox" name="images_to_delete[]" value="<?php echo $index; ?>"> Eliminar
+                    </div>
                 <?php } ?>
+            </div>
+            <p class="has-text-centered">
+                <button type="submit" class="button is-danger is-rounded">Eliminar seleccionadas</button>
+            </p>
+        </form>
 
                 <div class="box">
                     <h2 class="title has-text-centered"><?php echo htmlspecialchars($datos['title']); ?></h2>
