@@ -3,10 +3,10 @@ include "./backend/inc/btn_back.php";
 require_once "./backend/php/main.php";
 
 $id = (isset($_GET['id_property_view'])) ? $_GET['id_property_view'] : 0;
-$id = limpiar_cadena($id);
+
 ?>
 <div class="container is-fluid mb-6">
-    <h1 class="title">Propiedades</h1>
+    <h1 class="title">Propiedad</h1>
 </div>
 
 <div class="container pb-6 pt-6">
@@ -19,25 +19,20 @@ $id = limpiar_cadena($id);
         $datos = $check_propiedad->fetch();
         $images = json_decode($datos['picture'], true) ?: [];
 
-
     ?>
 
     <div class="form-rest mb-6 mt-6"></div>
+    <form action="./backend/object/Publication.php" method="POST">
         <div class="columns is-mobile">
             <div class="column">
-            <h4 class="title is-4 mb-6">Imágenes actuales</h4>
-            <input type="hidden" name="img_del_id" value="<?php echo $datos['id_property']; ?>">
-            <div class="columns is-multiline">
                 <?php foreach ($images as $index => $img) { ?>
-                    <div class="column is-one-quarter">
-                        <figure class="image is-4by3">
-                            <img src="<?php echo $img; ?>" alt="Imagen propiedad">
-                        </figure>
-                    </div>
-                <?php } ?>
-            </div>
-        
-
+                        <div class="column is-one-quarter">
+                            <figure class="image is-4by3">
+                                <img src="<?php echo $img; ?>" alt="Imagen propiedad">
+                            </figure>
+                            
+                        </div>
+                    <?php } ?>
 
                 <div class="box">
                     <h2 class="title has-text-centered"><?php echo htmlspecialchars($datos['title']); ?></h2>
@@ -62,11 +57,15 @@ $id = limpiar_cadena($id);
             <div class="column">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3476.9558109071627!2d-66.34241857118006!3d-33.28432508428671!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1645188876080!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
+                </form>
         </div>
     <?php
     } else {
         include "./backend/inc/error_alert.php";
     }
     $check_propiedad = null;
+    
     ?>
+
+   
 </div>

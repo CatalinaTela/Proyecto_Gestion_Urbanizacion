@@ -24,7 +24,6 @@
         $registros=15;
         $busqueda="";
 
-        # Paginador producto #
         require_once "././backend/object/Property.php";
     ?>
 </div>
