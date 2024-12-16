@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 13-12-2024 a las 15:24:55
+-- Tiempo de generación: 16-12-2024 a las 13:09:08
 -- Versión del servidor: 8.3.0
 -- Versión de PHP: 8.2.18
 
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `inmobiliarias` (
 
 INSERT INTO `inmobiliarias` (`id_agency`, `name_agency`, `mail_agency`, `phone_agency`, `website`) VALUES
 (2, 'REMAX', 'remax@inmobiliaria.com', '+54968754656', 'https://www.remax.com.ar/'),
-(3, 'Ferrara SA', 'ferrara@inmobiliaria.com', '+54968754694', 'https://www.ferrarapropiedades.com/');
+(3, 'Ferrara SA', 'ferrara@inmobiliaria.com', '+54968754693', 'https://www.ferrarapropiedades.com/');
 
 -- --------------------------------------------------------
 
@@ -95,9 +95,9 @@ CREATE TABLE IF NOT EXISTS `propiedades` (
 
 INSERT INTO `propiedades` (`id_property`, `title`, `description`, `observations`, `ubication`, `value`, `picture`, `id_type`, `id_operation`) VALUES
 (25, 'casa', 'casa en venta', '...', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/675760ce5630c_casa.png\"]', 16, 15),
-(26, 'dpto', 'se alquila dpto', '...', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/675760e7a04df_casa.png\"]', 17, 16),
-(27, 'casa', 'se alquila casa', '...', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/675760fa595d9_casa.png\",\"assets\\/img\\/propiedad\\/675760fa5981c_casa4.png\",\"assets\\/img\\/propiedad\\/675760fa599de_casa5.png\"]', 16, 13),
-(28, 'lote', 'lote en venta', '...', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/6757610f5ab6c_casa.png\",\"assets\\/img\\/propiedad\\/6757610f5b905_casa5.png\"]', 6, 15);
+(26, 'dpto', 'se alquila dpto', '...', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/675c5eb3cb21c_casa.png\",\"assets\\/img\\/propiedad\\/675c5f0cbb23f_casa3.png\",\"assets\\/img\\/propiedad\\/675c5f0cbb5bc_casa4.png\",\"assets\\/img\\/propiedad\\/675c5f0cbb86c_casa5.png\",\"assets\\/img\\/propiedad\\/675c5f84e5151_casa5.png\",\"assets\\/img\\/propiedad\\/675c5fbcd346e_casa5.png\",\"assets\\/img\\/propiedad\\/675c5fc62b1ed_casa.png\"]', 17, 16),
+(27, 'casa', 'se alquila casa', '.....', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/675760fa595d9_casa.png\",\"assets\\/img\\/propiedad\\/675c643d1f1ff_casa3.png\",\"assets\\/img\\/propiedad\\/675c643d202af_casa4.png\",\"assets\\/img\\/propiedad\\/675c643d207d1_casa5.png\"]', 16, 13),
+(28, 'lote', 'lote en venta', '...', 'bariloche', 5468135, '[\"assets\\/img\\/propiedad\\/675c607d09790_casa.png\",\"assets\\/img\\/propiedad\\/675c607d1211c_casa3.png\",\"assets\\/img\\/propiedad\\/675c607d125b6_casa4.png\"]', 6, 15);
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `phone` varchar(15) NOT NULL,
   `role` enum('user','admin') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'user',
   PRIMARY KEY (`id_user`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
@@ -146,7 +146,9 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 INSERT INTO `usuarios` (`id_user`, `name`, `lastname`, `mail`, `password`, `phone`, `role`) VALUES
 (11, 'Catalina', 'Tela', 'catatela@gmail.com', '$2y$10$FH3W9llstuRUXL4891n3dOJ29ecyAEkE5oQkWhjyUlC17/AAqSxoy', '+5492944568432', 'admin'),
 (13, 'Hermes', 'Tela', 'hermes@gmail.com', '$2y$10$0xM0VQnm.zykDSs0LnsfUeguXKKE0KNwhrhdXbIAMDcjE4uEzfgK.', '+5492944568432', 'user'),
-(14, 'cata', 'tela', 'tela.cata@gmail.com', '$2y$10$WGVL0JiR5fw9LAFiSVhMbeNYYhn2ZbotQaEoDe3gjbkkvARDamave', '+5497563214568', 'user');
+(14, 'cata', 'tela', 'tela.cata@gmail.com', '$2y$10$WGVL0JiR5fw9LAFiSVhMbeNYYhn2ZbotQaEoDe3gjbkkvARDamave', '+5497563214568', 'user'),
+(15, 'admi', 'nistrador', 'admin@gmail.com', '$2y$10$KHc/Xyq0JuKskbpguZLCbesfUIztlEeBhDH/ozqm/HYBDONWXl1Qu', '+54687921354', 'admin'),
+(16, 'user', 'usuario', 'user@gmail.com', '$2y$10$n.LkaD0TdU/u7/CneAmoneTqIQlYlQXfpx2skrVd2sm2xh9eLf3cy', '+54687921356', 'user');
 
 --
 -- Restricciones para tablas volcadas
